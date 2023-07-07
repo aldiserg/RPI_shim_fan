@@ -28,7 +28,7 @@ while True:
 		shim.ChangeDutyCycle(100)
 	if temp > tempOn+10:
 		shim.ChangeDutyCycle(80)
-	if temp > tempOn-10:
+	if temp > tempOn:
 		shim.ChangeDutyCycle(50)
 	else:
 		shim.ChangeDutyCycle(0)
