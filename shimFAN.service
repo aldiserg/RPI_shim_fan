@@ -1,0 +1,11 @@
+[Unit]
+Description=Managing fan via shim
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=python /path/to/hwm.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
