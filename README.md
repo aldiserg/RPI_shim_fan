@@ -1,4 +1,4 @@
-# Managing cooled fan via shim on RPI
+# Cooled fan via shim on RPI
 ![Connection](https://github.com/aldiserg/RPI_shim_fan/blob/main/connections.png?raw=true)
 
 # Requirements
