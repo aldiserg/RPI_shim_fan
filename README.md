@@ -23,7 +23,7 @@ cd RPI_shim_fan
 Change path to shim.py into shimFAN.service
 
 ```
-ExecStart=python /path/to/hwm.py
+ExecStart=python /path/to/shim.py
 ```
 
 Change connected pin into shim.py (line 9)
