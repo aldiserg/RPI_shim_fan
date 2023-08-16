@@ -12,9 +12,9 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(dataPIN, GPIO.OUT)
 
-tempOn = 50
 shim = GPIO.PWM (dataPIN, 10) # pin and speed
 shim.start(0)
+active = 0
 
 def get_temp():
     temp = check_output(["vcgencmd","measure_temp"]).decode()    
@@ -22,15 +22,12 @@ def get_temp():
     return(temp) 
 
 while True:
-	temp = get_temp()
-	# print(temp, "C")
-	if temp > tempOn+20:
-		shim.ChangeDutyCycle(100)
-	if temp > tempOn+10:
-		shim.ChangeDutyCycle(80)
-	if temp > tempOn:
-		shim.ChangeDutyCycle(50)
-	else:
-		shim.ChangeDutyCycle(0)
-	time.sleep(1)
-
+        temp = get_temp()
+        # print(temp, "C")
+        if temp > 60 and active == 0:
+                active = 1
+                shim.ChangeDutyCycle(50)
+        elif temp < 40 and active == 1:
+                active = 0
+                shim.ChangeDutyCycle(0)
+        time.sleep(10)
