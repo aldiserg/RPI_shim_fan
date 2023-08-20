@@ -27,7 +27,7 @@ while True:
         if temp > 60 and active == 0:
                 active = 1
                 shim.ChangeDutyCycle(50)
-        elif temp < 40 and active == 1:
+        elif temp < 45 and active == 1:
                 active = 0
                 shim.ChangeDutyCycle(0)
         time.sleep(10)
